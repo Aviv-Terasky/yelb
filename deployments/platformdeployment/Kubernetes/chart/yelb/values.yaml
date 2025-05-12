@@ -14,13 +14,16 @@ service:
   port: 80
 
 ingress:
-  enabled: false
+  enabled: true
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    alb.ingress.kubernetes.io/scheme: internet-facingx
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/tags: Environment=dev,Group=default
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-1:637423489873:certificate/0b7876bb-7ace-4c1c-b10f-a046c40ebe02
   path: /
   hosts:
-    - chart-example.local
+    - aviv-yelb.terasky-test.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
