@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: {{ template "yelb.fullname" . }}
-      tier: cache
+      tier: frontend
       release: {{ .Release.Name }}
       chart: {{ template "yelb.chart" . }}
   template:
@@ -62,7 +62,7 @@ spec:
   selector:
     matchLabels:
       app: {{ template "yelb.fullname" . }}
-      tier: cache
+      tier: backenddb
       release: {{ .Release.Name }}
       chart: {{ template "yelb.chart" . }}
   template:
@@ -88,7 +88,7 @@ spec:
   selector:
     matchLabels:
       app: {{ template "yelb.fullname" . }}
-      tier: cache
+      tier: middletier
       release: {{ .Release.Name }}
       chart: {{ template "yelb.chart" . }}
   template:
