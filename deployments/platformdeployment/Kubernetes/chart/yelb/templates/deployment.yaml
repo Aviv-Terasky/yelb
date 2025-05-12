@@ -4,6 +4,12 @@ metadata:
   name: {{ template "yelb.fullname" . }}-ui
 spec:
   replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "yelb.fullname" . }}
+      tier: cache
+      release: {{ .Release.Name }}
+      chart: {{ template "yelb.chart" . }}
   template:
     metadata:
       labels:
@@ -27,6 +33,12 @@ metadata:
   name: {{ template "yelb.fullname" . }}-cache
 spec:
   replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "yelb.fullname" . }}
+      tier: cache
+      release: {{ .Release.Name }}
+      chart: {{ template "yelb.chart" . }}
   template:
     metadata:
       labels:
@@ -47,6 +59,12 @@ metadata:
   name: {{ template "yelb.fullname" . }}-db
 spec:
   replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "yelb.fullname" . }}
+      tier: cache
+      release: {{ .Release.Name }}
+      chart: {{ template "yelb.chart" . }}
   template:
     metadata:
       labels:
@@ -67,6 +85,12 @@ metadata:
   name: {{ template "yelb.fullname" . }}-appserver
 spec:
   replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "yelb.fullname" . }}
+      tier: cache
+      release: {{ .Release.Name }}
+      chart: {{ template "yelb.chart" . }}
   template:
     metadata:
       labels:
