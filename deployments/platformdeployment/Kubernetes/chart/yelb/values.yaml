@@ -22,6 +22,9 @@ ingress:
     alb.ingress.kubernetes.io/tags: Environment=dev,Group=default
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-1:637423489873:certificate/0b7876bb-7ace-4c1c-b10f-a046c40ebe02
   path: /
+  backend:
+    serviceName: yelb-ui
+    servicePort: http
   hosts:
     - aviv-yelb.terasky-test.com
   tls: []
