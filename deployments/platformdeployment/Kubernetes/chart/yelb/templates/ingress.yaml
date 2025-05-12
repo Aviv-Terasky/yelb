@@ -35,8 +35,8 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.ingress.backend.serviceName }}
+                name: {{ $.Values.ingress.backend.serviceName }}
                 port:
-                  name: {{ .Values.ingress.backend.servicePort }}
+                  name: {{ $.Values.ingress.backend.servicePort }}
   {{- end }}
 {{- end }}
