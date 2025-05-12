@@ -23,10 +23,10 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: 80
+          - containerPort: 80
         env:
-        - name: "APP_SERVER_HOSTNAME"
-          value: {{ template "yelb.fullname" . }}-appserver
+          - name: "APP_SERVER_HOSTNAME"
+            value: {{ template "yelb.fullname" . }}-appserver
 ---
 apiVersion: apps/v1
 kind: Deployment
